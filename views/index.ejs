@@ -1,5 +1,65 @@
-<div class="container">
-    <h1>Welcome to the Home Page!</h1>
-    <p>This is the home page of our application.</p>
-    <a href="/contact" class="btn btn-primary">Go to Contact Page</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="images/mudryk.png" alt="Profile Picture" class="profile-picture">
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li><a href="/todo" class="nav-link ">Todo</a></li>
+                
+            </ul>
+            <ul class="navbar-signout">
+                <li><a href="/login" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 class="hero-title">Welcome Anyone</h1>
+        <p class="hero-description">This Website was designed by me</p>
+        <a href="contact.ejs" class="hero-btn">Go to Contact Page</a>
+    </div>
+
+    <!-- Section Tambahan -->
+    <div class="features">
+        <div class="feature">
+            <img src="images/tech.png" alt="Welcome" class="feature-img">
+            <h3>feature one</h3>
+            <p>You can put what you want here</p>
+        </div>
+        <div class="feature">
+            <img src="images/sksks.jpg" alt="Todo List" class="feature-img">
+            <h3>My GF rill</h3>
+            <p>cakep bet cewe gw dah</p>
+        </div>
+        <div class="feature">
+            <img src="images/phone.png" alt="Contact" class="feature-img">
+            <h3>Call me</h3>
+            <p>I'll make sure i answer anytime u contaced! Just hit the Contact Menu.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>©2024 DYok.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,11 +1,12 @@
 const express = require('express');
-// const todoRoutes = require('./routes/todo.js');
-const todoRoutes = require('./routes/tododb.js');
 const app = express();
+
+const todoRoutes = require('./routes/tododb.js');
 require('dotenv').config();
 const port = process.env.PORT;
 const db = require('./database/db');
 const expressLayouts = require('express-ejs-layouts')
+
 const session = require('express-session');
 // Mengimpor middleware
 const authRoutes = require('./routes/authRoutes');
@@ -13,6 +14,8 @@ const { isAuthenticated } = require('./middlewares/middleware.js');
 
 app.use(expressLayouts);
 app.use(express.json());
+
+
 app.use('/todos', todoRoutes);
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
@@ -29,13 +32,15 @@ app.use('/', authRoutes);
 
 app.get('/', isAuthenticated, (req, res) => {
     res.render('index', {
-        layout: 'layouts/main-layout'
+        layout: 'layouts/main-layout',
+        pages:'home'
     });
 });
 
-app.get('/contact', (req, res) => {
+app.get('/contact',isAuthenticated, (req, res) => {
     res.render('contact', {
-        layout: 'layouts/main-layout'
+        layout: 'layouts/main-layout',
+        pages:'contact'
     });
 });
 
@@ -49,10 +54,8 @@ app.get('/todo-view', isAuthenticated, (req, res) => {
     });
 });
 
-app.use((req, res) => {
-    res.status(404).send('404 - Page Not Found');
-});
-
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
+
+app.use(express.static("public"));
